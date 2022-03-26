@@ -28,12 +28,12 @@ function Test-Authentication {
     $Uri = "http://localhost:5266/weatherforecast"
     
     $headers = @{
-        'Ocp-Apim-Subscription-Key' = ''
+        #'Ocp-Apim-Subscription-Key' = ''
         'Authorization' = "Bearer $token"
-        'Api-version' = '1.0'
+        #'Api-version' = '1.0'
     }
     
-    Write-Host "The token is $token";
+    Write-Host "The token used is $token";
     
     $respone = Invoke-RestMethod `
         -Uri $Uri `
@@ -45,4 +45,4 @@ function Test-Authentication {
 }
 
 $authToken = Get-AuthToken;
-Test-Authentication($authToken);
+Test-Authentication -token $authToken;
